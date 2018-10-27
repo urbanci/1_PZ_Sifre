@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.Controller_2">
+    <children>
+        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#addTextFile" prefHeight="55.0" prefWidth="155.0" text="Add txt file" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0" />
+        <TextArea fx:id="ta_text_2" layoutX="15.0" layoutY="57.0" prefHeight="200.0" prefWidth="200.0" wrapText="true" AnchorPane.bottomAnchor="210.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="85.0" />
+        <TextField fx:id="tf_key_2" layoutX="15.0" layoutY="255.0" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="15.0" />
+        <Text fx:id="t_message_2" layoutX="15.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="189.6708984375" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" />
+        <Text layoutX="15.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insert encryption key:" wrappingWidth="188.6708984375" AnchorPane.bottomAnchor="90.0" />
+        <Button layoutX="219.0" layoutY="409.0" mnemonicParsing="false" onAction="#encryptText" text="Encrypt" AnchorPane.bottomAnchor="55.0" />
+        <Button layoutX="303.0" layoutY="409.0" mnemonicParsing="false" onAction="#decryptText" text="Decrypt" AnchorPane.bottomAnchor="55.0" />
+      <Text layoutX="15.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Randomize the table: " wrappingWidth="187.00000493973494" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="15.0" />
+      <Text fx:id="t_randomized" layoutX="15.0" layoutY="550.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Click on &quot;Randomize&quot; to randomize the encryption -&gt;" wrappingWidth="550.0" AnchorPane.bottomAnchor="130.0" AnchorPane.leftAnchor="15.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Text>
+      <Button layoutX="395.0" layoutY="339.0" mnemonicParsing="false" onAction="#randomizeData" text="Randomize" AnchorPane.bottomAnchor="125.0" />
+    </children>
+</AnchorPane>

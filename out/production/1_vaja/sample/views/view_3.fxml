@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.Controller_3">
+    <children>
+        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="155.0" text="Add txt file" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0" />
+        <TextArea fx:id="ta_text_3" layoutX="15.0" layoutY="57.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="130.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="85.0" />
+        <TextField fx:id="tf_key_3" layoutX="15.0" layoutY="255.0" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="15.0" />
+        <Text fx:id="t_message_1" layoutX="15.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="189.6708984375" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" />
+        <Text layoutX="15.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insert encryption key:" wrappingWidth="188.6708984375" AnchorPane.bottomAnchor="95.0" />
+        <Button layoutX="220.0" layoutY="314.0" mnemonicParsing="false" text="Encrypt" AnchorPane.bottomAnchor="55.0" />
+        <Button layoutX="310.0" layoutY="314.0" mnemonicParsing="false" text="Decrypt" AnchorPane.bottomAnchor="55.0" />
+    </children>
+</AnchorPane>
