@@ -136,6 +136,7 @@ public class Controller_2 {
         }
 
         plainText = sb.toString();
+        ta_text_2.setText(plainText);
     }
 
 //    spedenaj kljuc
