@@ -16,9 +16,8 @@
         <Text layoutX="15.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insert encryption key:" wrappingWidth="188.6708984375" AnchorPane.bottomAnchor="95.0" />
         <Button layoutX="220.0" layoutY="314.0" mnemonicParsing="false" onAction="#encryption" text="Encrypt" AnchorPane.bottomAnchor="55.0" />
         <Button layoutX="310.0" layoutY="314.0" mnemonicParsing="false" onAction="#decryption" text="Decrypt" AnchorPane.bottomAnchor="55.0" />
-      <Text layoutX="25.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Randomize the table: " wrappingWidth="187.00000493973494" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="15.0" />
-      <Button layoutX="401.0" layoutY="339.0" mnemonicParsing="false" onAction="#randomizeData" text="Randomize" AnchorPane.bottomAnchor="125.0" AnchorPane.leftAnchor="401.0" />
-      <Text fx:id="t_randomized_3" layoutX="15.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Click on &quot;Randomize&quot; to randomize the encryption -&gt;" wrappingWidth="386.0" AnchorPane.bottomAnchor="130.0" AnchorPane.leftAnchor="15.0">
+      <Text layoutX="25.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cypher:" wrappingWidth="187.00000493973494" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="15.0" />
+      <Text fx:id="t_randomized_3" layoutX="15.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insert encryption key to create unique table" wrappingWidth="386.0" AnchorPane.bottomAnchor="130.0" AnchorPane.leftAnchor="15.0">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

@@ -1,9 +1,11 @@
 package sample.controllers;
 
+import com.sun.deploy.util.ArrayUtil;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import org.apache.commons.lang3.ArrayUtils;
 import sample.Helper;
 
 import java.util.ArrayList;
@@ -49,6 +51,7 @@ public class Controller_3 {
     public void encryption(){
         stripText();
         stripKey();
+        randomizeData();
         encodeText();
         encryptText();
     }
@@ -234,31 +237,34 @@ public class Controller_3 {
 
 //    TABLES -----------------------------------------------------------
 //    Randomize playfair array
-    public void randomizeData(){
+    public void randomizeData() {
         int count = 0;
-        shuffleArray();
+        char tempCharTable[] = charTable;
 
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 6; j++) {
-                playfairTable[i][j] = charTable[count];
-                count++;
+        for (int i = 0; i < plainKey.length(); i++) {
+            for (int j = 0; j < tempCharTable.length; j++) {
+                if(plainKey.charAt(i) == tempCharTable[j]){
+                    tempCharTable = ArrayUtils.remove(tempCharTable, i);
+                }
             }
         }
 
-        t_randomized_3.setText(getPlayfairTable());
+        tempCharTable = shuffleArray(tempCharTable);
     }
 
-//    shuffle array
-    private void shuffleArray(){
+    //    shuffle array
+    private char[] shuffleArray(char[] randomTable){
         Random rnd = ThreadLocalRandom.current();
 
-        for (int i = charTable.length - 1; i > 0; i--) {
+        for (int i = randomTable.length - 1; i > 0; i--) {
             int index = rnd.nextInt(i + 1);
             // Simple swap
-            char a = charTable[index];
-            charTable[index] = charTable[i];
-            charTable[i] = a;
+            char a = randomTable[index];
+            randomTable[index] = randomTable[i];
+            randomTable[i] = a;
         }
+
+        return randomTable;
     }
 
 //    PRINTS ---------------------------------------------------------
