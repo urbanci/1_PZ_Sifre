@@ -179,7 +179,7 @@ public class Controller_3 {
                 }
 
                 if(rowB == -1){
-                    rowA = 5;
+                    rowB = 5;
                 }
                 sb.append(playfairTable[rowA][colA]+""+playfairTable[rowB][colB]);
                 System.out.print(playfairTable[rowA][colA]+""+playfairTable[rowB][colB]);
@@ -238,18 +238,53 @@ public class Controller_3 {
 //    TABLES -----------------------------------------------------------
 //    Randomize playfair array
     public void randomizeData() {
-        int count = 0;
         char tempCharTable[] = charTable;
+        ArrayList<Character> charTableKey = new ArrayList<>();
 
+        System.out.println("1.");
         for (int i = 0; i < plainKey.length(); i++) {
             for (int j = 0; j < tempCharTable.length; j++) {
                 if(plainKey.charAt(i) == tempCharTable[j]){
-                    tempCharTable = ArrayUtils.remove(tempCharTable, i);
+                    tempCharTable = ArrayUtils.remove(tempCharTable, j);
+                    charTableKey.add(plainKey.charAt(i));
+                    System.out.print(plainKey.charAt(i));
                 }
             }
         }
 
+        System.out.println();
+
+        System.out.println("2.");
         tempCharTable = shuffleArray(tempCharTable);
+
+        String cypher = mergePlayfairTable(tempCharTable, charTableKey);
+        System.out.println("3.");
+        System.out.println("cypher -> "+cypher);
+
+        System.out.println();
+        System.out.println("4.");
+        int row = 0, column = 0;
+        for (int i = 0; i < cypher.length(); i++) {
+             if(i%6 != 0 || i==0){
+                 playfairTable[row][column] = cypher.charAt(i);
+                 column++;
+                 System.out.print(cypher.charAt(i));
+            }else if(i%6 == 0) {
+                 column = 0;
+                 row++;
+                 System.out.println(" i%6 => " + i +cypher.charAt(i)+" "+row+" "+column);
+                 playfairTable[row][column] = cypher.charAt(i);
+                 column++;
+                 System.out.print(cypher.charAt(i));
+             }
+        }
+
+        System.out.println("\n");
+        System.out.println("5.");
+        getPlayfairTable();
+
+        t_randomized_3.setText(cypher);
+
     }
 
     //    shuffle array
@@ -265,6 +300,23 @@ public class Controller_3 {
         }
 
         return randomTable;
+    }
+
+//    merge key and leftover keys
+    private String mergePlayfairTable(char[] tempCharTable, ArrayList<Character> charTableKey){
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < charTableKey.size(); i++) {
+            sb.append(charTableKey.get(i));
+        }
+
+        for (int i = 0; i < tempCharTable.length; i++) {
+            sb.append(tempCharTable[i]);
+        }
+
+
+
+        return sb.toString();
     }
 
 //    PRINTS ---------------------------------------------------------
