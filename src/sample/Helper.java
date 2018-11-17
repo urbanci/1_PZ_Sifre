@@ -5,6 +5,7 @@ import javafx.stage.FileChooser;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Helper {
@@ -41,5 +42,39 @@ public class Helper {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    //    Add file to textarea
+    public static File getFile() throws IOException {
+        File fileContent = null;
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Resource File");
+
+        fileContent = fileChooser.showOpenDialog(null);;
+
+        return fileContent;
+
+    }
+	
+//    get for loop number
+    public static int forLoop(int bitrate){
+        int forLoop = 0;
+
+        switch (bitrate){
+            case 128:
+                forLoop = 10;
+                break;
+
+            case 192:
+                forLoop = 12;
+                break;
+
+            case 256:
+                forLoop = 14;
+                break;
+        }
+
+        return forLoop;
     }
 }
