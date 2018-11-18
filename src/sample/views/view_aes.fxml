@@ -26,6 +26,6 @@
         <Text fx:id="t_message_3" layoutX="15.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="189.6708984375" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" />
         <Text layoutX="15.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insert encryption key:" wrappingWidth="188.6708984375" AnchorPane.bottomAnchor="95.0" />
         <Button layoutX="220.0" layoutY="314.0" mnemonicParsing="false" onAction="#AESEncrypt" text="Encrypt" AnchorPane.bottomAnchor="55.0" />
-        <Button layoutX="310.0" layoutY="314.0" mnemonicParsing="false" text="Decrypt" AnchorPane.bottomAnchor="55.0" />
+        <Button layoutX="310.0" layoutY="314.0" mnemonicParsing="false" onAction="#AESDecrypt" text="Decrypt" AnchorPane.bottomAnchor="55.0" />
     </children>
 </AnchorPane>
