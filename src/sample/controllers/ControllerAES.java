@@ -6,6 +6,7 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import org.apache.commons.io.FilenameUtils;
 import sample.Helper;
 
 import java.io.*;
@@ -19,6 +20,7 @@ public class ControllerAES {
     private int bytes; // counting checked bytes
     private int fileSize = 0;
     private int leftOverBits = 0;
+    private String extension = "";
 
     private ArrayList<Integer> fileBytesPlain = new ArrayList<>();
     private ArrayList<Integer> encryptedFile = new ArrayList<>();
@@ -86,6 +88,30 @@ public class ControllerAES {
             getEncryptedState(i);
             decrypt();
 
+            if(i==fileSize-1){
+                int p = 0;
+                for (int j = 3; j < -1; j--) {
+                    for (int k = 3; k < -1; k--) {
+                      if(state[j][k]==0){
+                          p++;
+                      }else if(state[j][k]==1){
+                          break;
+                      }
+                    }
+                }
+
+                int c = 0;
+                for (int j = 0; j < 4; j++) {
+                    for (int k = 0; k < 4; k++) {
+                        if(c==16-p){
+                            fileBytesPlain.add(state[k][j]);
+                            sb.append(((char) state[k][j]));
+                            c++;
+                        }
+                    }
+                }
+            }
+
             for (int j = 0; j < 4; j++) {
                 for (int k = 0; k < 4; k++) {
                     fileBytesPlain.add(state[k][j]);
@@ -138,7 +164,6 @@ public class ControllerAES {
                 invShiftRows();
                 invSubBytes();
                 addRoundKey();
-
             }
 
             t_message_3.setText("Decription successfull!");
@@ -309,6 +334,8 @@ public class ControllerAES {
         fileBytesPlain.clear();
         byte[] bytes;
         File file = Helper.getFile();
+        extension = FilenameUtils.getExtension(file.getName());
+
         t_filename.setText(file.getName());
 
         if(file != null){
@@ -352,7 +379,20 @@ public class ControllerAES {
 
     private void getEncryptedState(int num){
         int tempCount = 0;
+            if(num==fileSize-1 || num==fileSize-2){
+                int b = bytes;
 
+                for (int i = 0; i < 4; i++) {
+                    for (int j = 0; j < 4; j++) {
+                        int t = encryptedFile.get(b);
+                        b++;
+                    }
+
+                    System.out.println();
+                }
+
+                System.out.println();
+            }
             for (int i = 0; i < 4; i++) {
                 for (int j = 0; j < 4; j++) {
                     int t = encryptedFile.get(bytes);

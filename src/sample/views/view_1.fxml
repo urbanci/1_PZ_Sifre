@@ -34,10 +34,15 @@
              <fx:include fx:id="view_3" source="view_3.fxml" />
         </content>
     </Tab>
-    <Tab text="AES">
+    <Tab text="AES Cypher">
       <content>
           <fx:include fx:id="view_aes" source="view_aes.fxml" />
       </content>
     </Tab>
+      <Tab text="RC4 Cypher">
+          <content>
+              <fx:include fx:id="view_rc4" source="view_rc4.fxml" />
+          </content>
+      </Tab>
   </tabs>
 </TabPane>
