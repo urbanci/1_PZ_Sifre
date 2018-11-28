@@ -226,7 +226,4 @@ public class Controller_RC4 {
             t_decryption.setText(String.valueOf(time));
         }
     }
-
-
-
 }
