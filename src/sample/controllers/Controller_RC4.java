@@ -16,8 +16,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Controller_RC4 {
-    private ArrayList<Integer> filePlain = new ArrayList<>();
-    private ArrayList<Integer> fileEncrypted = new ArrayList<>();
+    private ArrayList<Byte> filePlain = new ArrayList<>();
+    private ArrayList<Byte> fileEncrypted = new ArrayList<>();
     private ArrayList<Integer> plainKey = new ArrayList<>();
     private ArrayList<Integer> s_box = new ArrayList<>();
 
@@ -106,23 +106,24 @@ public class Controller_RC4 {
         StringBuilder sb = new StringBuilder();
         fileEncrypted.clear();
 
+        byte[] code = new byte[filePlain.size()];
         while (i<filePlain.size()){
             a = (a + 1) % 256;
             b = (b + s_box.get(a)) % 256;
             Collections.swap(s_box, a, b);
 
             int key_int = s_box.get((s_box.get(a) + s_box.get(b))% 256);
-            int cypher = key_int^filePlain.get(i);
+            byte cypher = (byte) (key_int^filePlain.get(i));
 
             fileEncrypted.add(cypher);
             sb.append((char)cypher);
-
+            code[i] = cypher;
             i++;
         }
 
         System.out.println("aaa");
 //        export file
-        Helper.exportFile(sb.toString(), extension, true);
+        Helper.exportFile(code, extension, true);
     }
 
 //    inverse PRGA
@@ -133,17 +134,18 @@ public class Controller_RC4 {
         StringBuilder sb = new StringBuilder();
         filePlain.clear();
 
-        System.out.println("aaa");
+        byte[] code = new byte[fileEncrypted.size()];
+
         while (i<fileEncrypted.size()){
             a = (a + 1) % 256;
             b = (b + s_box.get(a)) % 256;
             Collections.swap(s_box, a, b);
 
             int key_int = s_box.get((s_box.get(a) + s_box.get(b))% 256);
-            int cypher = key_int^fileEncrypted.get(i);
+            byte cypher = (byte) (key_int^fileEncrypted.get(i));
 
             filePlain.add(cypher);
-            sb.append((char)cypher);
+            code[i] = cypher;
 
             i++;
         }
@@ -151,7 +153,7 @@ public class Controller_RC4 {
         System.out.println();
 
 //        export file
-        Helper.exportFile(sb.toString(), extension, false);
+        Helper.exportFile(code, extension, false);
     }
 
 
@@ -196,7 +198,7 @@ public class Controller_RC4 {
             bytes = Files.readAllBytes(file.toPath());
 
             for (int i = 0; i < bytes.length; i++) {
-                filePlain.add(byteToInt(bytes[i]));
+                filePlain.add(bytes[i]);
             }
         }
     }

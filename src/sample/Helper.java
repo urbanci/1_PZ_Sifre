@@ -77,7 +77,7 @@ public class Helper {
     }
 
 //    export encrypted file
-    public static void exportFile(String file, String extension, boolean encrypted){
+    public static void exportFile(byte[] file, String extension, boolean encrypted){
         String name = "";
 
         if(encrypted){
@@ -87,9 +87,12 @@ public class Helper {
         }
 
         try (
-            PrintStream out = new PrintStream(new FileOutputStream(name+extension))) {
-            out.print(file);
+            FileOutputStream stream = new FileOutputStream(name+extension)) {
+            stream.write(file);
+            stream.close();
         } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
