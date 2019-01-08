@@ -44,5 +44,10 @@
               <fx:include fx:id="view_rc4" source="view_rc4.fxml" />
           </content>
       </Tab>
+      <Tab text="SHA-256 Cypher">
+          <content>
+              <fx:include fx:id="sha_256" source="view_sha.fxml" />
+          </content>
+      </Tab>
   </tabs>
 </TabPane>
