@@ -49,7 +49,7 @@ public class Helper {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Resource File");
 
-        fileContent = fileChooser.showOpenDialog(null);;
+        fileContent = fileChooser.showOpenDialog(null);
 
         return fileContent;
 
@@ -277,3 +277,5 @@ public class Helper {
             0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19 };
 
 }
+
+//DS -------------------------------------------------------------------------

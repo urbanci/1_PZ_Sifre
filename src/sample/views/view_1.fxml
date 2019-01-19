@@ -49,5 +49,10 @@
               <fx:include fx:id="sha_256" source="view_sha.fxml" />
           </content>
       </Tab>
+      <Tab text="Digital Signature">
+          <content>
+              <fx:include fx:id="view_ds" source="view_ds.fxml" />
+          </content>
+      </Tab>
   </tabs>
 </TabPane>
